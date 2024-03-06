@@ -1,11 +1,11 @@
 <?php
 // スーパーグローバル変数 php 9種類
 //連想配列
-// if (!empty($_POST)) {
-//   echo '<pre>';
-//   var_dump($_POST);
-//   echo '</pre>';
-// }
+if (!empty($_POST)) {
+  echo '<pre>';
+  var_dump($_POST);
+  echo '</pre>';
+}
 
 function h($str)
 {

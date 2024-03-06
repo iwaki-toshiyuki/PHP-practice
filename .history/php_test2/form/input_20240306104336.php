@@ -1,11 +1,11 @@
 <?php
 // スーパーグローバル変数 php 9種類
 //連想配列
-// if (!empty($_POST)) {
-//   echo '<pre>';
-//   var_dump($_POST);
-//   echo '</pre>';
-// }
+if (!empty($_POST)) {
+  echo '<pre>';
+  var_dump($_POST);
+  echo '</pre>';
+}
 
 function h($str)
 {
@@ -55,10 +55,10 @@ if (!empty($_POST['btn_submit'])) {
     <?php if ($pageFlag == 0) : ?>
       <form method='POST' action='input.php'>
         氏名
-        <input type="text" name="your_name" value="<?php if(!empty($_POST['your_name'])){echo h($_POST['your_name']) ;} ?>">
+        <input type="text" name="your_name" value="<?php if(!empty($_POST['your_name'])){echo h($_POST['your_name'] ;} ?>">
         <br>
         メールアドレス
-        <input type="email" name="email" value="<?php if(!empty($_POST['email'])){echo h($_POST['email']);} ?>">
+        <input type="email" name="email" value="<?php if(!empty($_POST['email'])){echo $_POST['email'];} ?>">
         <br>
         <input type="submit" name="btn_confirm" value="確認する">
 
