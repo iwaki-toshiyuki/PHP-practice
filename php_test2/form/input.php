@@ -2,6 +2,8 @@
 
 session_start();
 
+require 'validation.php';
+
 header('X-FRAME-OPTIONS:DENY');
 
 // スーパーグローバル変数 php 9種類
@@ -21,8 +23,9 @@ function h($str)
 // CSRF 偽物のinput.php ->悪意のあるページ
 
 $pageFlag = 0;
+$errors = validation($_POST);
 
-if (!empty($_POST['btn_confirm'])) {
+if (!empty($_POST['btn_confirm']) && empty($errors)) {
   $pageFlag = 1;
 }
 
@@ -117,6 +120,16 @@ if (!empty($_POST['btn_submit'])) {
       }
       $token =  $_SESSION['csrfToken'];
       ?>
+
+      <?php if (!empty($errors) && !empty($_POST['btn_confirm'])) : ?>
+        <?php echo '<ul>'; ?>
+         <?php
+         foreach($errors as $error){
+          echo '<li>' . $error . '</il>';
+         }
+         ?>
+        <?php echo '</ul>'; ?>
+      <?php endif; ?>
 
       <form method='POST' action='input.php'>
         氏名
