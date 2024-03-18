@@ -123,11 +123,11 @@ if (!empty($_POST['btn_submit'])) {
 
       <?php if (!empty($errors) && !empty($_POST['btn_confirm'])) : ?>
         <?php echo '<ul>'; ?>
-         <?php
-         foreach($errors as $error){
+        <?php
+        foreach ($errors as $error) {
           echo '<li>' . $error . '</il>';
-         }
-         ?>
+        }
+        ?>
         <?php echo '</ul>'; ?>
       <?php endif; ?>
 
@@ -180,10 +180,10 @@ if (!empty($_POST['btn_submit'])) {
         <br>
         お問い合わせ内容
         <textarea name="contact">
-          <?php if (!empty($_POST['contact'])) {
-            echo h($_POST['contact']);
-          } ?>
-      </textarea>
+<?php if (!empty($_POST['contact'])) {
+        echo h($_POST['contact']);
+      } ?>
+</textarea>
         <br>
         <input type="checkbox" name="caution" value="1">注意事項にチェックする
         <br>
